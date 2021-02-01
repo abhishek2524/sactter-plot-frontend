@@ -1,0 +1,5 @@
+- To run frontend :
+    - Open terminal with path : "/sactter-plot-frontend-main"
+    - Then enter "npm start"
+- Backend is running at port = 3000 in localhost
+- Note : Before starting server run "npm install"

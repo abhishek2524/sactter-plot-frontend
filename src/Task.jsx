@@ -23,7 +23,11 @@ const Tasks = ()=>{
                 <button className="btn btn-info text-dark m-2" onClick={()=>task(5)}>Bonus Task</button>
             </div>
             <div style={cssStyle}>
-                <Scatter data={chartData.data} options={chartData.options}/>
+                {
+                    Object.keys(chartData.data).length === 0 ? 
+                        <p className="text-center">Click On Button To view Chart</p> : 
+                        <Scatter data={chartData.data} options={chartData.options}/>
+                }
             </div>
         </>
     )
