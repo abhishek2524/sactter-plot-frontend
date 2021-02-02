@@ -1,11 +1,12 @@
 import React from 'react';
 // import {Scatter} from 'react-chartjs-2';
 import { useEffect, useState } from 'react';
+import CanvasScatter from './CanvasScatter';
 import Scatter from './Scatter';
 const cssStyle = {alignSelf:'center',width:'400px',height:"400px"}
 
 const Tasks = ()=>{
-    const [chartData,setChartData] = useState({data:{},options:{}})
+    const [chartData,setChartData] = useState([])
     const task = async(taskId)=>{
         const resData = await fetch(`http://localhost:5000/tasks?tasksId=${taskId}`);
         let tempData = await resData.json();
@@ -24,15 +25,9 @@ const Tasks = ()=>{
                 <button className="btn btn-info text-dark m-2" onClick={()=>task(5)}>Bonus Task</button>
             </div>
             <div style={cssStyle}>
-                {
-                    Object.keys(chartData.data).length === 0 ? 
-                        <p className="text-center">Click On Button To view Chart</p> : 
-                        <Scatter data={chartData.data} options={chartData.options}/>
-                }
+                {chartData.length > 0 ? <CanvasScatter data={chartData}/> : <p className="text-center">Click On Button To view Chart</p> }
             </div>
         </>
     )
 }
-
-//<Scatter data={chartData.data} options={chartData.options}/>
 export default Tasks;
