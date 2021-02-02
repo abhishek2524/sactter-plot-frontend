@@ -1,6 +1,7 @@
 import React from 'react';
-import {Scatter} from 'react-chartjs-2';
+// import {Scatter} from 'react-chartjs-2';
 import { useEffect, useState } from 'react';
+import Scatter from './Scatter';
 const cssStyle = {alignSelf:'center',width:'400px',height:"400px"}
 
 const Tasks = ()=>{
@@ -33,4 +34,5 @@ const Tasks = ()=>{
     )
 }
 
+//<Scatter data={chartData.data} options={chartData.options}/>
 export default Tasks;
